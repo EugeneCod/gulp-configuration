@@ -1,0 +1,20 @@
+{
+  "name": "gulp-configuration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EugeneCod/gulp-configuration.git"
+  },
+  "author": "Eugene Korobkin",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^7.0.0",
+    "gulp": "^4.0.2"
+  }
+}
