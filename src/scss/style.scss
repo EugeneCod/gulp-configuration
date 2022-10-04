@@ -1,9 +1,8 @@
 body {
-  background-color: #000;
+  background: url('@img/bg-lemon-gate.png') 0 0 no-repeat;
   span {
     color: #f00;
   }
-  background: url('@img/cover.jpg') 0 0 no-repeat;
 }
 
 @media (max-width: 768px) {

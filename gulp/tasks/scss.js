@@ -21,7 +21,7 @@ export const scss = () => {
       outputStyle: 'expanded' // Стиль собранного файла
     }))
     .pipe(groupCssMediaQueries())
-    .pipe(webpcss ({
+    .pipe(webpcss({
       webpClass: '.webp',
       noWebpClass: '.no-webp',
     }))
@@ -31,7 +31,7 @@ export const scss = () => {
       cascade: true,
     }))
     // Раскомментировать если нужна несжатая копия файла стилей
-    // .pipe(app.gulp.dest(app.path.build.css))
+    .pipe(app.gulp.dest(app.path.build.css))
     .pipe(cleanCss())
     .pipe(rename({
       extname: '.min.css'
