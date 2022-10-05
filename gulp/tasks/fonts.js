@@ -4,7 +4,7 @@ import ttf2woff2 from 'gulp-ttf2woff2'
 
 export const otfToTtf = () => {
   // Ищем файлы шрифтов .otf
-  return app.gulp.src(`${app.path.srcFolder}/fonts/*.otf`, {})
+  return app.gulp.src(`${app.path.src.fonts}*.otf`, {})
     .pipe(app.plugins.plumber(
       app.plugins.notify.onError({
         title: 'FONTS',
@@ -16,12 +16,12 @@ export const otfToTtf = () => {
       formats: ['ttf']
     }))
     // Выгружаем в исходную папку
-    .pipe(app.gulp.dest(`${app.path.srcFolder}/fonts/`))
+    .pipe(app.gulp.dest(app.path.src.fonts))
 }
 
 export const ttfToWoff = () => {
   // Ищем файлы шрифтов .ttf
-  return app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`, {})
+  return app.gulp.src(`${app.path.src.fonts}*.ttf`, {})
     .pipe(app.plugins.plumber(
       app.plugins.notify.onError({
         title: 'FONTS',
@@ -33,13 +33,13 @@ export const ttfToWoff = () => {
       formats: ['woff']
     }))
     // Выгружаем в папку с результатом
-    .pipe(app.gulp.dest(`${app.path.build.fonts}`))
+    .pipe(app.gulp.dest(app.path.build.fonts))
     // Ищем файлы шрифтов .ttf
     .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`, {}))
     // Конвертируем в .woff2
     .pipe(ttf2woff2())
     // Выгружаем в папку с результатом
-    .pipe(app.gulp.dest(`${app.path.build.fonts}`))
+    .pipe(app.gulp.dest(app.path.build.fonts))
 }
 
 export const fontsStyle = () => {
@@ -89,6 +89,6 @@ export const fontsStyle = () => {
       }
     }
   });
-  return app.gulp.src(`${app.path.srcFolder}`);
+  return app.gulp.src(app.path.srcFolder);
   function cb() { }
 }

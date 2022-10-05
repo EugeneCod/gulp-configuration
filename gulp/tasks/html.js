@@ -20,22 +20,30 @@ export const html = () => {
       verbose: true,
     }))
     .pipe(app.plugins.replace(/@img\//g, 'img/'))
-    .pipe(webpHtmlNosvg())
+    .pipe(  
+      app.plugins.if(
+        app.isBuild,
+        webpHtmlNosvg()
+      )
+    )
     .pipe(
-      versionNumber({ // Добавление файлам ключа из даты и времени
-        'value': '%DT%',
-        'append': {
-          'key': '_v',
-          'cover': 0,
-          'to': [
-            'css',
-            'js',
-          ]
-        },
-        'output': {
-          'file': 'gulp/version.json'
-        }
-      })
+      app.plugins.if(
+        app.isBuild,
+        versionNumber({ // Добавление файлам ключа из даты и времени
+          'value': '%DT%',
+          'append': {
+            'key': '_v',
+            'cover': 0,
+            'to': [
+              'css',
+              'js',
+            ]
+          },
+          'output': {
+            'file': 'gulp/version.json'
+          }
+        })
+      )
     )
     .pipe(app.gulp.dest(app.path.build.html))
     .pipe(app.plugins.browsersync.stream());

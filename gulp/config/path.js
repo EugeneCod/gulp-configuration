@@ -19,6 +19,8 @@ export const path = {
     html: `${srcFolder}/*.pug`,
     images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
     svg: `${srcFolder}/img/**/*.svg`,
+    svgicons: `${srcFolder}/svgicons/*.svg`,
+    fonts: `${srcFolder}/fonts/`,
     files: `${srcFolder}/files/**/*.*`, //Все папки и все файлы
   },
   watch: {
